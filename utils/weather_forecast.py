@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-API_KEY = os.environ['API_KEY']
+API_KEY = os.environ['WEATHER_API_KEY']
 BASE_URL = os.environ['WEATHER_API_URL']
 unit_group = 'metric'
 
