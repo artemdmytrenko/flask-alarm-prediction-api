@@ -15,9 +15,9 @@ from utils.prepare_report import transform
 
 load_dotenv()
 
-model = pickle.load(open(r'../models/2__passive_agressive_classifier__v2.pkl', 'rb'))
-tfidf_transformer = pickle.load(open(r'../models/tfidf_transformer.pkl', 'rb'))
-cv = pickle.load(open(r'../models/cv.pkl', 'rb'))
+model = pickle.load(open(os.path.relpath(r'../models/2__passive_agressive_classifier__v2.pkl'), 'rb'))
+tfidf_transformer = pickle.load(open(os.path.relpath{r'../models/tfidf_transformer.pkl'}, 'rb'))
+cv = pickle.load(open(os.path.relpath(r'../models/cv.pkl'), 'rb'))
 
 def predict(loc: str):
 
