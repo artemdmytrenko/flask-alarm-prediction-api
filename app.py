@@ -9,11 +9,13 @@ import json
 from dotenv import load_dotenv
 from bson.json_util import dumps
 
-load_dotenv()
-regions = json.loads(os.environ['regions'])
 
 app = Flask(__name__)
 cors = CORS(app)
+
+load_dotenv()
+regions = json.loads(os.environ['regions'])
+
 
 URI = os.environ['MONGODB_URI']
 client = MongoClient(URI, tlsAllowInvalidCertificates=True)
@@ -57,4 +59,4 @@ def alarms_page():
 
 if __name__ == '__main__':
     cors.init_app(app)
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=False, use_reloader=False)
