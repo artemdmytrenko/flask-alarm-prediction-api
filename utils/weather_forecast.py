@@ -4,6 +4,7 @@ from pprint import pprint
 from datetime import datetime, timedelta 
 from sys import argv
 from dotenv import load_dotenv
+import pytz
 
 load_dotenv()
 
@@ -15,7 +16,8 @@ unit_group = 'metric'
 # Returns the weather forecast for the following 12 hours
 def get_12hr_forecast(location: str) -> list:
     
-    date_start = datetime.now().replace(minute=0, second=0)
+    kyiv_time = pytz.timezone('Europe/Kiev')
+    date_start = datetime.now().astimezone(kyiv_time).replace(minute=0, second=0)
     date_end = date_start + timedelta(hours=12)
     dt_format = '%Y-%m-%dT%H:%M:%S'
     date_start, date_end = date_start.strftime(dt_format), date_end.strftime(dt_format) 
